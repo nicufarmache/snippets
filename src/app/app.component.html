@@ -1,3 +1,28 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-inverse navbar-static-top navbar-no-margin">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Snippets</a>
+    </div>    
+    <ul *ngIf="showAccount" class="nav navbar-nav navbar-right">
+      <li *ngIf="!loggedIn" (click)="login()" ><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
+      <li *ngIf="loggedIn" (click)="logout()" ><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
+    </ul>
+    <p *ngIf="loggedIn" class="navbar-text navbar-right"><img [src]="userPhotoURL" class="userPhoto"> {{userDisplayName}}</p>
+  </div>
+</nav>
+
+<div *ngIf="showAccount && !loggedIn" class="jumbotron">
+  <div class="container">
+    <h1>Hello</h1>
+    <p>To continue please sign in using your Google account</p>
+    <p><button (click)="login()" class="btn btn-primary btn-lg" href="#" role="button"><span class="glyphicon glyphicon-log-in"></span> Click here to sign in</button></p>
+  </div>
+</div>
+
+<ul *ngIf="loggedIn">
+  <li class="text" *ngFor="let item of items | async">
+    {{item.name}}
+  </li>
+</ul>
+
+<button (click)="newSnippet()" class="btn btn-primary" href="#" role="button"><span class="glyphicon glyphicon-plus"></span> New</button>
