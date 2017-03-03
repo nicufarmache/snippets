@@ -25,4 +25,4 @@
   </li>
 </ul>
 
-<button (click)="newSnippet()" class="btn btn-primary" href="#" role="button"><span class="glyphicon glyphicon-plus"></span> New</button>
+<button *ngIf="loggedIn" (click)="newSnippet()" class="btn btn-primary" href="#" role="button"><span class="glyphicon glyphicon-plus"></span> New</button>
