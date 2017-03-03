@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +8,14 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  loggedIn = false;
-  showAccount = false;
-  userDisplayName = "";
-  userPhotoURL = "";
-  uid = null;
+  loggedIn: Boolean;
+  showAccount: Boolean;
+  userDisplayName: string;
+  userPhotoURL: string;
 
   items: FirebaseListObservable<any[]>;
   
-  constructor(public af: AngularFire) {
+  constructor(public af: AngularFire, private router: Router) {
     af.auth.subscribe(auth => {
       if (!auth){
         this.loggedIn = false;
@@ -27,8 +27,7 @@ export class AppComponent {
       this.userDisplayName = auth.auth.displayName;
       this.userPhotoURL = auth.auth.photoURL
       this.showAccount = true;
-      this.uid = auth.uid;
-      this.items = af.database.list('/users/' + this.uid);
+      this.router.navigate(['/list']);
     });
   }  
   login() {
@@ -38,7 +37,4 @@ export class AppComponent {
      this.af.auth.logout();
   }
 
-  newSnippet() {
-    this.items.push({name:"test", description:"alalalala"});
-  }
 }

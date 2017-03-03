@@ -5,7 +5,7 @@
     </div>    
     <ul *ngIf="showAccount" class="nav navbar-nav navbar-right">
       <li *ngIf="!loggedIn" (click)="login()" ><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
-      <li *ngIf="loggedIn" (click)="logout()" ><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
+      <li *ngIf="loggedIn" (click)="logout()" routerLink="/" ><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
     </ul>
     <p *ngIf="loggedIn" class="navbar-text navbar-right"><img [src]="userPhotoURL" class="userPhoto"> {{userDisplayName}}</p>
   </div>
@@ -20,9 +20,9 @@
 </div>
 
 <ul *ngIf="loggedIn">
-  <li class="text" *ngFor="let item of items | async">
-    {{item.name}}
-  </li>
+
 </ul>
 
-<button *ngIf="loggedIn" (click)="newSnippet()" class="btn btn-primary" href="#" role="button"><span class="glyphicon glyphicon-plus"></span> New</button>
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,15 @@
+<div class=".container">
+    <div class="row">
+        <div class="col-md-6 center-block">
+            <div class="list-group snippet-list">
+            <a [routerLink]="['/list']" (click)="newSnippet()" class="list-group-item active">
+                <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-plus"></span> New snippet</h4>
+            </a>
+            <a [routerLink]="['/list']" class="list-group-item" *ngFor="let item of items | async">
+                <h4 class="list-group-item-heading">{{item.name}}</h4>
+                <p class="list-group-item-text">{{item.description}}</p>
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
