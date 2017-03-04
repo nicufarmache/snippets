@@ -27,14 +27,15 @@ export class AppComponent {
       this.userDisplayName = auth.auth.displayName;
       this.userPhotoURL = auth.auth.photoURL
       this.showAccount = true;
-      this.router.navigate(['/list']);
+      if (this.router.url === '/')
+        this.router.navigate(['/list']);
     });
   }  
   login() {
     this.af.auth.login();
   }
   logout() {
-     this.af.auth.logout();
+    this.af.auth.logout();
   }
 
 }

@@ -5,3 +5,14 @@
 .center-block{
     float: none;
 }
+.align-right{
+    float: right;
+}
+.snippet>a{
+    color: #303030;
+    text-decoration: none;
+}
+button.glyphicon-remove{
+    padding-right: 0px;
+    padding-top: 6px;
+}

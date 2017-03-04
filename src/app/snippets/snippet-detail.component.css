@@ -1,0 +1,10 @@
+.snippet-list{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.center-block{
+    float: none;
+}
+.monospace{
+    font-family:monospace;
+}

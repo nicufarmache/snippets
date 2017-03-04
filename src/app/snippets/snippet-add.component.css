@@ -1,0 +1,13 @@
+.snippet-list{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.center-block{
+    float: none;
+}
+.field-list>div.input-group{
+    margin-bottom:10px;
+}
+.monospace{
+    font-family:monospace;
+}

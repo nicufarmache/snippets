@@ -13,14 +13,14 @@ export class SnippetListComponent {
   constructor(public af: AngularFire, private router: Router) {
     af.auth.subscribe(auth => {
       if (!auth){
-        this.router.navigate(['/']);
+        //this.router.navigate(['/']);
         return;
       }
       this.items = af.database.list('/users/' + auth.uid);
     });
-  }  
-
-  newSnippet() {
-    this.items.push({name:"test", description:"alalalala"});
   }
+
+  remove(key: string){
+    this.items.remove(key);
+  }  
 }

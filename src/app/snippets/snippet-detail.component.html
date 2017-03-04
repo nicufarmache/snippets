@@ -1,0 +1,23 @@
+<div *ngIf="(item | async)?.name" class=".container">
+    <div class="row">
+        <div class="col-md-6 center-block">
+            <div class="list-group snippet-list">
+                <div href="#" class="list-group-item active">
+                    <h4 class="list-group-item-heading">{{(item | async)?.name}}</h4>
+                </div>
+                <div href="#" class="list-group-item ">
+                    <h6 class="list-group-item-heading">{{(item | async)?.author}}</h6>
+                </div>
+                <div href="#" class="list-group-item ">
+                    <h5 class="list-group-item-heading">{{(item | async)?.description}}</h5>
+                </div>
+                <div href="#" class="list-group-item ">
+                    <textarea class="form-control monospace" rows="15" id="code">{{(item | async)?.code}}</textarea>
+                </div>
+                <div href="#" class="list-group-item">
+                    <p class="list-group-item-text"><button type="button" [routerLink]="['/list']" class="btn btn-link">Close</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
